@@ -11,6 +11,7 @@
 |
 */
 
-$router->controller('auth', 'Auth\AuthController');
-
-$router->controller('password', 'Auth\PasswordController');
+$router->controllers([
+    'auth'      =>  'Auth\AuthController',
+    'password'  =>  'Auth\PasswordController',
+]);
