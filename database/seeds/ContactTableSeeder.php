@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Agendavel\Contact;
+use Agendavel\Number;
 
 class ContactTableSeeder extends Seeder
 {
@@ -12,10 +14,17 @@ class ContactTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Agendavel\Contact::class, 200)->create()->each(function($contact) {
-            for($i = 1; $i <= rand(1, 5); $i++) {
-                $contact->numbers()->save(factory(\Agendavel\Number::class)->make());
+        $contacts = factory(Contact::class, 200)->create();
+
+        $contacts->each(function($contact) {
+
+            $generateAmount = rand(1, 5);
+
+            for($i = 1; $i <= $generateAmount; $i++) {
+                $number = factory(Number::class)->make();
+                $contact->numbers()->save($number);
             }
+
         });
     }
 }
