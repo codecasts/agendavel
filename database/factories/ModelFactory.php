@@ -11,11 +11,27 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(Agendavel\User::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'password' => str_random(10),
+        'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(Agendavel\Contact::class, function($faker) {
+    return [
+        'name'  =>  $faker->name,
+        'comments'  =>  str_random(20),
+    ];
+});
+
+$factory->define(Agendavel\Number::class, function($faker) {
+    $types = ['work', 'home', 'mobile'];
+
+    return [
+        'number'    =>  $faker->phoneNumber,
+        'type'      =>  $types[rand(0,2)],
     ];
 });
