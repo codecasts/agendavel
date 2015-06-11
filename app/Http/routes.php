@@ -18,3 +18,7 @@ $router->get('contact', function() {
 $router->get('contact/{id}', function($id) {
     return 'O contato de ID '. $id . ' irá aparecer aqui.';
 });
+
+$router->post('contact', function() {
+    return app()->request->input();
+});
