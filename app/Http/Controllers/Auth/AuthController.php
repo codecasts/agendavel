@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Agendavel\Http\Controllers\Auth;
 
-use App\User;
+use Agendavel\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Agendavel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
