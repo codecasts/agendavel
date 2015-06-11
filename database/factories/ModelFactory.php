@@ -26,3 +26,12 @@ $factory->define(Agendavel\Contact::class, function($faker) {
         'comments'  =>  str_random(20),
     ];
 });
+
+$factory->define(Agendavel\Number::class, function($faker) {
+    $types = ['work', 'home', 'mobile'];
+
+    return [
+        'number'    =>  $faker->phoneNumber,
+        'type'      =>  $types[rand(0,2)],
+    ];
+});
