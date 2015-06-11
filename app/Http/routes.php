@@ -10,3 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+Route::get('contact', function() {
+    return 'A Lista de Contatos Irá aparecer aqui';
+});
