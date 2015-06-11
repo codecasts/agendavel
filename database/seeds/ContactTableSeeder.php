@@ -12,6 +12,10 @@ class ContactTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Agendavel\Contact::class, 200)->create();
+        factory(\Agendavel\Contact::class, 200)->create()->each(function($contact) {
+            for($i = 1; $i <= rand(1, 5); $i++) {
+                $contact->numbers()->save(factory(\Agendavel\Number::class)->make());
+            }
+        });
     }
 }
