@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('contact', function() {
+$router->get('contact', function() {
     return 'A Lista de Contatos Irá aparecer aqui';
 });
 
-Route::get('contact/{id}', function($id) {
+$router->get('contact/{id}', function($id) {
     return 'O contato de ID '. $id . ' irá aparecer aqui.';
 });
