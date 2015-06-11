@@ -11,14 +11,18 @@
 |
 */
 
-$router->get('contact', function() {
-    return 'A Lista de Contatos Irá aparecer aqui';
+$router->group(['prefix' => 'contact'], function() use ($router) {
+
+    $router->get('/', function() {
+        return 'A Lista de Contatos Irá aparecer aqui';
+    });
+
+    $router->get('{id}', function($id) {
+        return 'O contato de ID '. $id . ' irá aparecer aqui.';
+    });
+
+    $router->post('', function() {
+        return app()->request->input();
+    });
 });
 
-$router->get('contact/{id}', function($id) {
-    return 'O contato de ID '. $id . ' irá aparecer aqui.';
-});
-
-$router->post('contact', function() {
-    return app()->request->input();
-});
